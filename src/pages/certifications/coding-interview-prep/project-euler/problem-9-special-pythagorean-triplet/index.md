@@ -3,8 +3,27 @@ title: Special Pythagorean triplet
 ---
 ## Problem 9: Special Pythagorean triplet
 
-This is a stub. <a href='https://github.com/freecodecamp/guides/tree/master/src/pages/certifications/coding-interview-prep/project-euler/problem-9-special-pythagorean-triplet/index.md' target='_blank' rel='nofollow'>Help our community expand it</a>.
+### Explaination:
+- Since we have a condition: `a+b+c = n` where n being the number passed, we can simplify the equation to `c = (n-a-b)`.
+- Now, for every iteration check the pythagorian equation `a^2 + b^2 = c^2` to be true if so then we we got our product `a*b*c`.
 
-<a href='https://github.com/freecodecamp/guides/blob/master/README.md' target='_blank' rel='nofollow'>This quick style guide will help ensure your pull request gets accepted</a>.
+### Solution:
 
-<!-- The article goes here, in GitHub-flavored Markdown. Feel free to add YouTube videos, images, and CodePen/JSBin embeds  -->
+```
+  function specialPythagoreanTriplet(n) {
+     var prodOfTriplet
+     for (let i = 1; i < n; i++) {
+        for (let j = 1; j < n; j++) {
+          if (Math.pow(i, 2) + Math.pow(j, 2) == Math.pow(n - i - j, 2)) {
+            prodOfTriplet = i * j * (n - i - j);
+          }
+        }
+      }
+
+      return prodOfTriplet;
+
+  }
+  specialPythagoreanTriplet(1000);
+```
+
+### Try with [Repl.it](https://repl.it/@GemjuSherpa/Special-Pythagorean-triplet)
